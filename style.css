@@ -1,0 +1,257 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #6a1b9a; /* Purple */
+    color: white;
+    padding: 10px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.cv-btn {
+    background-color: white;
+    color: #6a1b9a;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Home Section */
+#home {
+    background-color: #fff;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-content {
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+}
+
+.text {
+    flex: 1;
+}
+
+.profile-img {
+    width: 300px; /* Increased from 250px to 300px */
+    height: 300px; /* Increased from 250px to 300px */
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.social-icons a {
+    color: #6a1b9a; /* Matches your purple theme */
+    text-decoration: none;
+    font-size: 24px; /* Adjust icon size */
+    margin-right: 10px; /* Space between icons */
+    transition: color 0.3s; /* Smooth color change on hover */
+}
+
+.social-icons a:hover {
+    color: #9c27b0; /* Darker purple on hover */
+}
+
+.social-icons i {
+    vertical-align: middle; /* Aligns icon nicely */
+}
+
+/* About Section */
+#about {
+    padding: 50px;
+    background-color: #fff;
+    text-align: left;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.about-text {
+    flex: 1;
+    background-color: #f0f0f0; /* Square background for text */
+    padding: 20px;
+    border-radius: 10px; /* Slight rounding */
+    height: fit-content;
+    text-align:  center;
+}
+
+.skills {
+    flex: 1;
+    background-color: #f0f0f0; /* Single square background for all skills */
+    padding: 20px;
+    border-radius: 10px; /* Slight rounding for square effect */
+    display: flex;
+    justify-content: space-between; /* Distributes columns evenly */
+    gap: 10px; /* Space between columns */
+}
+
+.skill-column {
+    flex: 1; /* Each column takes equal width */
+    min-width: 0; /* Prevents overflow */
+}
+
+.skill-column h3 {
+    margin-top: 0; /* Remove default margin */
+}
+
+.skill-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-column li {
+    background-color: #6a1b9a;
+    color: white;
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Projects Section */
+#projects {
+    padding: 50px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+}
+
+.stat img {
+    width: 50px;
+}
+
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: left;
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+}
+
+.project-card ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.project-card li {
+    color: green; /* Green bullets like in screenshots */
+}
+
+/* Contact Section */
+#contact {
+    padding: 50px;
+    background-color: #fff;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: #6a1b9a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Make it responsive for mobile (like your screenshots) */
+@media (max-width: 768px) {
+    .home-content, .about-container, .skills, .stats, .project-list {
+        flex-direction: column;
+    }
+    .about-text {
+        margin-bottom: 20px; /* Space between text and skills on mobile */
+    }
+    .skills {
+        flex-direction: column; /* Stack columns vertically on mobile */
+        gap: 20px; /* Space between stacked columns */
+    }
+    .skill-column {
+        flex: auto; /* Full width on mobile */
+    }
+}
+.aboutme {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #060208;
+}
+
