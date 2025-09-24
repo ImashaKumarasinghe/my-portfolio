@@ -1,13 +1,55 @@
-/* General Styles */
+/* General Styles (existing, with additions) */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #f4f4f4;
     color: #333;
+    background: linear-gradient(45deg, #e1bee7, #ce93d8);
+    background-size: 200% 200%;
+    animation: lightPurpleShift 20s ease infinite;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
 }
 
+/* Gradient Animation */
+@keyframes lightPurpleShift {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 0%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* Star Animation with Pseudo-element */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==") repeat;
+    opacity: 0.05;
+    animation: twinkle 5s infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.05; }
+    50% { opacity: 0.15; }
+    100% { opacity: 0.05; }
+}
+
+/* Shining Outline Animation */
+@keyframes shineOutline {
+    0% { box-shadow: 0 0 5px #ce93d8, 0 0 10px #ce93d8; }
+    50% { box-shadow: 0 0 10px #ce93d8, 0 0 20px #ce93d8, 0 0 30px #ce93d8; }
+    100% { box-shadow: 0 0 5px #ce93d8, 0 0 10px #ce93d8; }
+}
+
+/* Header */
 header {
-    background-color: #6a1b9a; /* Purple */
+    background-color: #6a1b9a;
     color: white;
     padding: 10px;
 }
@@ -46,7 +88,7 @@ nav a {
 
 /* Home Section */
 #home {
-    background-color: #fff;
+    background-color: transparent;
     padding: 50px;
     display: flex;
     justify-content: center;
@@ -64,32 +106,32 @@ nav a {
 }
 
 .profile-img {
-    width: 300px; /* Increased from 250px to 300px */
-    height: 300px; /* Increased from 250px to 300px */
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     object-fit: cover;
 }
 
 .social-icons a {
-    color: #6a1b9a; /* Matches your purple theme */
+    color: #6a1b9a;
     text-decoration: none;
-    font-size: 24px; /* Adjust icon size */
-    margin-right: 10px; /* Space between icons */
-    transition: color 0.3s; /* Smooth color change on hover */
+    font-size: 24px;
+    margin-right: 10px;
+    transition: color 0.3s;
 }
 
 .social-icons a:hover {
-    color: #9c27b0; /* Darker purple on hover */
+    color: #9c27b0;
 }
 
 .social-icons i {
-    vertical-align: middle; /* Aligns icon nicely */
+    vertical-align: middle;
 }
 
 /* About Section */
 #about {
+    background-color: transparent;
     padding: 50px;
-    background-color: #fff;
     text-align: left;
 }
 
@@ -103,30 +145,41 @@ nav a {
 
 .about-text {
     flex: 1;
-    background-color: #f0f0f0; /* Square background for text */
+    background-color: #f0f0f0;
     padding: 20px;
-    border-radius: 10px; /* Slight rounding */
+    border-radius: 10px;
     height: fit-content;
-    text-align:  center;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
+.about-text.active {
+    transform: scale(1.1); /* Popup effect */
+    background-color: #ce93d8; /* Color change */
+    box-shadow: 0 0 5px #ce93d8, 0 0 10px #ce93d8; /* Initial glow */
+    animation: shineOutline 1.5s infinite; /* Shining outline */
+    z-index: 10; /* Above other elements */
+}
+
+/* Skills */
 .skills {
     flex: 1;
-    background-color: #f0f0f0; /* Single square background for all skills */
+    background-color: #f0f0f0;
     padding: 20px;
-    border-radius: 10px; /* Slight rounding for square effect */
+    border-radius: 10px;
     display: flex;
-    justify-content: space-between; /* Distributes columns evenly */
-    gap: 10px; /* Space between columns */
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .skill-column {
-    flex: 1; /* Each column takes equal width */
-    min-width: 0; /* Prevents overflow */
+    flex: 1;
+    min-width: 0;
 }
 
 .skill-column h3 {
-    margin-top: 0; /* Remove default margin */
+    margin-top: 0;
 }
 
 .skill-column ul {
@@ -144,8 +197,8 @@ nav a {
 
 /* Projects Section */
 #projects {
+    background-color: transparent;
     padding: 50px;
-    background-color: #fff;
     text-align: center;
 }
 
@@ -161,6 +214,16 @@ nav a {
     padding: 20px;
     border-radius: 10px;
     width: 200px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.stat.active {
+    transform: scale(1.1); /* Popup effect */
+    background-color: #ce93d8; /* Color change */
+    box-shadow: 0 0 5px #ce93d8, 0 0 10px #ce93d8; /* Initial glow */
+    animation: shineOutline 1.5s infinite; /* Shining outline */
+    z-index: 10; /* Above other elements */
 }
 
 .stat img {
@@ -193,13 +256,13 @@ nav a {
 }
 
 .project-card li {
-    color: green; /* Green bullets like in screenshots */
+    color: green;
 }
 
 /* Contact Section */
 #contact {
+    background-color: transparent;
     padding: 50px;
-    background-color: #fff;
     text-align: center;
 }
 
@@ -233,25 +296,84 @@ footer {
     padding: 20px;
 }
 
-/* Make it responsive for mobile (like your screenshots) */
+/* Make it responsive for mobile */
 @media (max-width: 768px) {
     .home-content, .about-container, .skills, .stats, .project-list {
         flex-direction: column;
     }
     .about-text {
-        margin-bottom: 20px; /* Space between text and skills on mobile */
+        margin-bottom: 20px;
     }
     .skills {
-        flex-direction: column; /* Stack columns vertically on mobile */
-        gap: 20px; /* Space between stacked columns */
+        flex-direction: column;
+        gap: 20px;
     }
     .skill-column {
-        flex: auto; /* Full width on mobile */
+        flex: auto;
+    }
+    .stat {
+        width: 100%; /* Full width on mobile */
     }
 }
+
 .aboutme {
     text-align: center;
     margin-bottom: 20px;
     color: #060208;
 }
+/* Existing styles remain unchanged until new additions */
 
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: 1000; /* Above other content */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fce4ec; /* Light pink background */
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    text-align: left;
+    position: relative;
+    animation: shineOutline 2s infinite; /* Shining outline animation */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #6a1b9a;
+}
+
+.close:hover {
+    color: #9c27b0;
+}
+
+/* Shine Outline Animation */
+@keyframes shineOutline {
+    0% { box-shadow: 0 0 5px #ff80ab, 0 0 10px #ff80ab; } /* Light pink glow */
+    50% { box-shadow: 0 0 10px #ff80ab, 0 0 20px #ff80ab; } /* Brighter glow */
+    100% { box-shadow: 0 0 5px #ff80ab, 0 0 10px #ff80ab; } /* Back to start */
+}
+
+/* Make clickable boxes stand out */
+.about-text, .skills, .stat {
+    cursor: pointer;
+    transition: transform 0.2s; /* Smooth hover effect */
+}
+
+.about-text:hover, .skills:hover, .stat:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+}
